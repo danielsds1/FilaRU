@@ -1,0 +1,89 @@
+<style>
+
+  @media(min-width: 400px)
+  {
+    .container
+    {
+      margin-top: 200px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: 300px !important;
+    }
+  }
+  .back
+  {
+    background-color:#FBFCFC;
+
+  }
+
+  img
+  {
+    display: block;
+    margin: auto;
+    margin-top: 60px;
+    width: 125px;
+    height: 125px;
+  }
+
+  .apresentacao
+  {
+    margin: auto;
+    width: 300px !important;
+
+  }
+
+  .apresentacao p
+  {
+    width: 200px !important;
+    display: block;
+    margin: 10px auto !important;
+    padding: auto;
+    text-align: center;
+    color: #566573;
+    font-size: 20px;
+    font-weight: bolder
+  }
+
+
+  .input
+  {
+    margin: auto;
+    width: 250px;
+    border-radius: 5px;
+  }
+
+  button
+  {
+    background-color: #A93226;
+    margin: 20px auto 0 auto;
+    width: 100px !important;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+
+
+
+  button:hover{background-color: #A93226 !important;}
+
+</style>
+
+<ion-content padding class="back">
+  <div class="container">
+    <img src="assets/icon/logo-ufma.png">
+
+    <ion-item class="apresentacao back">
+      <p>NO QUEUE</p>
+    </ion-item>
+
+    <ion-item class="input back" >
+      <ion-label floating>Usuário</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item class="input back">
+      <ion-label floating>Senha</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+    <button block ion-button (click)="pageIndex()">LOGIN</button>
+  </div>
+</ion-content>

@@ -6,6 +6,11 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 
+import {LoginPageModule} from "../pages/login/login.module";
+import {PageCreditoPageModule} from "../pages/page-credito/page-credito.module";
+import {PageSemanaPageModule} from "../pages/page-semana/page-semana.module";
+import {IndexPageModule} from "../pages/index/index.module";
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -18,6 +23,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    LoginPageModule,
+    PageCreditoPageModule,
+    PageSemanaPageModule,
+    IndexPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
