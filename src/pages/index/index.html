@@ -16,7 +16,7 @@
     #sec img{
       width: 70px !important;
       height: 70px !important;
-      margin-left:;
+      /*margin-left:;*/
     }
 
   }
@@ -128,6 +128,12 @@
     border-radius: 5px;
   }
 
+  #info p{
+    width: 150px;
+    /*margin: auto;*/
+    text-align: left;
+  }
+
   .p{
     font-size: 14px !important;
     margin: 0px;
@@ -138,7 +144,7 @@
     color: #000;
     font-weight: bold;
     font-size: 16px;
-    text-align: center;
+    text-align: left;
   }
 
 
@@ -146,7 +152,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Servidor</ion-title>
+    <ion-title>Seus dados</ion-title>
     <button ion-button  outline id="logout" (click)="logout()">Sair</button>
   </ion-navbar>
 
@@ -156,7 +162,7 @@
 <ion-content padding class="back padd">
 
     <section id="sec">
-      <img src="../../assets/imgs/marie-curie.jpeg" class="perfil">
+      <img src="assets/imgs/marie-curie.jpeg" class="perfil">
       <div>
         <p>Marie Curie</p>
         <p>Química</p>
@@ -168,18 +174,18 @@
     <ion-list id="info">
       <ion-list-header class="cabecalho">
         <p>NO QUEUE</p>
-        <ion-icon ios="ios-card" md="md-card" item-right></ion-icon>
-        <ion-icon ios="ios-calendar-calenmd-calendar" item-right></ion-icon>
+        <ion-icon ios="ios-card" md="md-card" item-right (click)="pageDeposita()"></ion-icon>
+        <ion-icon ios="ios-calendar" md="md-calendar"  item-right (click)="pageCalendario()"></ion-icon>
       </ion-list-header>
-      <ion-item class="p">HORA: 12:00</ion-item>
-      <ion-item class="p">Fila: 200 pessoas</ion-item>
-      <ion-item class="p">Fluxo: 4pessoas/min</ion-item>
-      <ion-item class="p">Senha: CTA-9876</ion-item>
-      <ion-item class="p">Tempo: 12 min para sua chamada</ion-item>
+      <ion-item class="p back">HORA: 12:00</ion-item>
+      <ion-item class="p back">Fila: 200 pessoas</ion-item>
+      <ion-item class="p back">Fluxo: 4 pessoas/min</ion-item>
+      <ion-item class="p back" id="senha">Senha: </ion-item>
+      <ion-item class="p back">Tempo: 12 min para sua chamada</ion-item>
     </ion-list>
     <div class="divb">
-      <button ion-button>GERAR SENHA</button>
-      <button ion-button>CANCELAR</button>
+      <button ion-button (click)="fl.adic(201500)">GERAR SENHA</button>
+      <button ion-button (click)="cancelaSenha()">CANCELAR</button>
     </div>
 
   </section>

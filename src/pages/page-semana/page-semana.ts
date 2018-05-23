@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {PageCreditoPage} from "../page-credito/page-credito";
+import {LoginPage} from "../login/login";
 
 /**
  * Generated class for the PageSemanaPage page.
@@ -24,6 +26,18 @@ export class PageSemanaPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PageSemanaPage');
+  }
+
+
+  public pageDeposita()
+  {
+    this.navCtrl.push(PageCreditoPage);
+  }
+
+
+  public logout()
+  {
+    this.navCtrl.push(LoginPage);
   }
 
 }
