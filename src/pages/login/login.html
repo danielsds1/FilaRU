@@ -75,15 +75,35 @@
       <p>NO QUEUE</p>
     </ion-item>
 
+    <form [formGroup]="cadastro" (submit) = "login()">
+
     <ion-item class="input back" >
       <ion-label floating>Usuário</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input
+                  [(ngModel)] = "nome"
+                  formControlName="nome"
+                  type="text"
+                  name="nome"
+                  clearInput
+                  clearOnEdit="false"
+      ></ion-input>
+      <h6 *ngIf="errorEmail" class="error">{{messageEmail}}</h6>
     </ion-item>
 
     <ion-item class="input back">
       <ion-label floating>Senha</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input
+                [(ngModel)] = "senha"
+                formControlName="senha"
+                type="password"
+                name="senha"
+                clearInput
+                clearOnEdit="false"
+      ></ion-input>
+      <h6 *ngIf="errorPassword" class="error">{{messagePassword}}</h6>
     </ion-item>
-    <button block ion-button (click)="pageIndex()">LOGIN</button>
+    <!--[disabled]="cadastro.invalid"-->
+    <button  block ion-button>LOGIN</button><!--(click)="pageIndex()" -->
+    </form>
   </div>
 </ion-content>

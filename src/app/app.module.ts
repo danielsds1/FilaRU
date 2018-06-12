@@ -11,9 +11,16 @@ import {IndexPageModule} from "../pages/index/index.module";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {HttpClientModule} from "@angular/common/http";
 
 import {Cliente} from "../pages/index/cliente";
 import {Fila} from "../pages/index/fila";
+
+import { AngularFireModule } from 'angularfire2';
+import { FIREBASE_CONFIG } from './firebase.credentials';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import {NoteListService} from "../services/note-list.services";
+
 
 @NgModule({
   declarations: [
@@ -26,7 +33,10 @@ import {Fila} from "../pages/index/fila";
     LoginPageModule,
     PageCreditoPageModule,
     PageSemanaPageModule,
-    IndexPageModule
+    IndexPageModule,
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireDatabaseModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -37,6 +47,7 @@ import {Fila} from "../pages/index/fila";
     StatusBar,
     SplashScreen,
     Fila,
+    NoteListService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -8,6 +8,12 @@ import {Cliente} from "./cliente";
 import {Fila} from "./fila";
 
 
+import { Observable } from 'rxjs/Observable';
+import { Note } from '../../model/note/note.model';
+
+import {NoteListService} from "../../services/note-list.services";
+
+
 @IonicPage()
 @Component({
   selector: 'page-index',
@@ -17,17 +23,33 @@ export class IndexPage {
 
   fl = new Fila();
   statusSenha:boolean;
+  noteList: Observable<Note[]>
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
-    ) {
+    private noteListService: NoteListService
+    )
+  {
+
+    this.noteList = this.noteListService.getNoteList()
+      .snapshotChanges()
+      .map(
+        changes => {
+          return changes.map(c => ({
+            key: c.payload.key, ...c.payload.val()
+          }))
+        });
+
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad IndexPage');
   }
+
+
 
   public logout()
   {
