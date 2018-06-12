@@ -182,6 +182,7 @@
       <ion-item class="p back">Fluxo: 4 pessoas/min</ion-item>
       <ion-item class="p back" id="senha">Senha: </ion-item>
       <ion-item class="p back">Tempo: 12 min para sua chamada</ion-item>
+
     </ion-list>
     <div class="divb">
       <button ion-button (click)="fl.adic(201500)">GERAR SENHA</button>
@@ -190,15 +191,13 @@
 
   </section>
 
-  <ion-list>
+  <ion-list style="position: relative; top: 190px;">
     <ion-list-header>
       Notes
     </ion-list-header>
-
     <ion-item *ngFor="let note of noteList | async"
               detail-push navPush="EditNotePage" [navParams]="{note:note}">
-      {{note.title}}
-    </ion-item>
-  </ion-list>
+      <p style="color: black">Nota: {{note.title}}</p>
+    </ion-item> </ion-list>
 
 </ion-content>

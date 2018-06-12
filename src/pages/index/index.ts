@@ -12,7 +12,7 @@ import { Observable } from 'rxjs/Observable';
 import { Note } from '../../model/note/note.model';
 
 import {NoteListService} from "../../services/note-list.services";
-
+import {AngularFireDatabase} from 'angularfire2/database';
 
 @IonicPage()
 @Component({
@@ -23,30 +23,38 @@ export class IndexPage {
 
   fl = new Fila();
   statusSenha:boolean;
-  noteList: Observable<Note[]>
+  noteList: Observable<Note[]>;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
-    private noteListService: NoteListService
+    private noteListService: NoteListService,
+    private db: AngularFireDatabase
     )
   {
 
+    this.teste();
+    console.log('lista data');
+    console.log(this.noteList['title']);
+  }
+
+  teste()
+  {
     this.noteList = this.noteListService.getNoteList()
       .snapshotChanges()
       .map(
         changes => {
           return changes.map(c => ({
-            key: c.payload.key, ...c.payload.val()
+            key: c.payload.key, ...c.payload.val(),
           }))
         });
-
-
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad IndexPage');
+    console.log('lista');
+    console.log(this.noteList);
   }
 
 

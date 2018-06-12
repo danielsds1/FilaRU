@@ -12,6 +12,7 @@ import {IndexPageModule} from "../pages/index/index.module";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {HttpClientModule} from "@angular/common/http";
+import {HttpModule} from "@angular/http";
 
 import {Cliente} from "../pages/index/cliente";
 import {Fila} from "../pages/index/fila";
@@ -36,7 +37,8 @@ import {NoteListService} from "../services/note-list.services";
     IndexPageModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
